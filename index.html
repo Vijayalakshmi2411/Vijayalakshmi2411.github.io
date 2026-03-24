@@ -1,0 +1,704 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Vijayalakshmi S — Biomedical Engineer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Syne:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg:         #0C0C0E;
+  --bg2:        #111115;
+  --surface:    #17171C;
+  --border:     #2A2A32;
+  --border2:    #1E1E26;
+  --text:       #E8E6E0;
+  --muted:      #7A7885;
+  --soft:       #B0AEB8;
+  --accent:     #C8F060;
+  --accent2:    #8BAEFF;
+  --serif:      'Playfair Display', Georgia, serif;
+  --sans:       'Syne', system-ui, sans-serif;
+  --max:        820px;
+  --r:          12px;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--sans);
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.7;
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+}
+
+::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb { background: var(--border); border-radius: 99px; }
+
+/* NAV */
+nav {
+  position: sticky; top: 0; z-index: 100;
+  background: rgba(12,12,14,0.88);
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--border2);
+}
+.nav-inner {
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 0 28px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 58px;
+}
+.nav-logo {
+  font-family: var(--serif);
+  font-size: 1.1rem;
+  color: var(--text);
+  text-decoration: none;
+}
+.nav-logo span { color: var(--accent); }
+.nav-links { display: flex; list-style: none; }
+.nav-links a {
+  display: block;
+  padding: 6px 14px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+  text-decoration: none;
+  border-radius: 6px;
+  transition: color 0.2s, background 0.2s;
+}
+.nav-links a:hover { color: var(--accent); background: rgba(200,240,96,0.06); }
+
+/* PAGE */
+.page { max-width: var(--max); margin: 0 auto; padding: 0 28px; }
+section { padding: 90px 0; border-bottom: 1px solid var(--border2); }
+section:last-of-type { border-bottom: none; }
+
+.label {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-size: 0.72rem; font-weight: 700;
+  letter-spacing: 0.18em; text-transform: uppercase;
+  color: var(--accent); margin-bottom: 16px;
+}
+.label::before {
+  content: '';
+  display: block; width: 20px; height: 1.5px;
+  background: var(--accent); border-radius: 99px;
+}
+
+h2 {
+  font-family: var(--serif);
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 400;
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+  color: var(--text);
+  margin-bottom: 48px;
+}
+h2 em { font-style: italic; color: var(--accent); }
+
+/* HERO */
+#hero { padding: 110px 0 90px; border-bottom: 1px solid var(--border2); }
+.hero-badge {
+  display: inline-flex; align-items: center; gap: 7px;
+  border: 1px solid rgba(200,240,96,0.3);
+  background: rgba(200,240,96,0.05);
+  color: var(--accent);
+  font-size: 0.78rem; font-weight: 600;
+  letter-spacing: 0.06em; text-transform: uppercase;
+  padding: 5px 14px; border-radius: 99px; margin-bottom: 36px;
+}
+.hero-badge::before {
+  content: '';
+  width: 7px; height: 7px;
+  background: var(--accent); border-radius: 50%;
+  animation: pulse 2s ease-in-out infinite;
+}
+@keyframes pulse {
+  0%,100% { opacity:1; transform:scale(1); }
+  50%      { opacity:0.4; transform:scale(0.8); }
+}
+
+h1 {
+  font-family: var(--serif);
+  font-size: clamp(3rem, 8vw, 5.2rem);
+  font-weight: 400;
+  line-height: 1.0;
+  letter-spacing: -0.04em;
+  margin-bottom: 28px;
+}
+h1 em { font-style: italic; color: var(--accent); }
+
+.hero-sub {
+  font-size: 1.05rem; color: var(--soft);
+  max-width: 560px; line-height: 1.85; margin-bottom: 44px;
+}
+.hero-cta { display: flex; gap: 12px; flex-wrap: wrap; }
+
+.btn {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 12px 24px; border-radius: 8px;
+  font-family: var(--sans); font-size: 0.88rem; font-weight: 600;
+  letter-spacing: 0.03em; text-decoration: none;
+  cursor: pointer; border: none; transition: all 0.2s;
+}
+.btn-primary { background: var(--accent); color: #0C0C0E; }
+.btn-primary:hover { background: #d8f572; transform: translateY(-1px); }
+.btn-ghost { background: transparent; color: var(--soft); border: 1px solid var(--border); }
+.btn-ghost:hover { border-color: var(--accent); color: var(--accent); }
+
+.hero-rule {
+  display: flex; align-items: center; gap: 16px;
+  margin-top: 70px; padding-top: 40px;
+  border-top: 1px solid var(--border2);
+}
+.hero-stat { flex: 1; }
+.hero-stat-num {
+  font-family: var(--serif);
+  font-size: 1.9rem; color: var(--text); line-height: 1; margin-bottom: 4px;
+}
+.hero-stat-lbl { font-size: 0.78rem; color: var(--muted); letter-spacing: 0.04em; }
+.divider { width: 1px; height: 36px; background: var(--border); }
+
+/* ABOUT */
+.about-cols { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
+.about-text p { color: var(--soft); margin-bottom: 18px; line-height: 1.85; font-size: 0.97rem; }
+
+/* EXPERIENCE */
+.xp-item {
+  display: grid; grid-template-columns: 160px 1fr;
+  gap: 0 32px; padding-bottom: 44px; position: relative;
+}
+.xp-item:last-child { padding-bottom: 0; }
+.xp-date {
+  font-size: 0.78rem; color: var(--muted); font-weight: 600;
+  text-align: right; padding-right: 32px; padding-top: 4px;
+  position: relative; letter-spacing: 0.04em;
+}
+.xp-date::after {
+  content: ''; position: absolute; right: -7px; top: 7px;
+  width: 12px; height: 12px; border-radius: 50%;
+  background: var(--bg); border: 2px solid var(--accent);
+}
+.xp-body {
+  border-left: 1px solid var(--border);
+  padding-left: 32px; padding-bottom: 44px;
+}
+.xp-item:last-child .xp-body { padding-bottom: 0; }
+.xp-role { font-weight: 700; font-size: 1rem; margin-bottom: 4px; color: var(--text); }
+.xp-company { font-size: 0.85rem; color: var(--accent2); font-weight: 600; margin-bottom: 14px; }
+.xp-desc { font-size: 0.9rem; color: var(--soft); line-height: 1.8; }
+.xp-desc ul { padding-left: 18px; }
+.xp-desc li { margin-bottom: 6px; }
+
+/* EDUCATION */
+.edu-list { display: flex; flex-direction: column; gap: 14px; }
+.edu-card {
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: var(--r); padding: 24px 28px;
+  display: flex; justify-content: space-between;
+  align-items: flex-start; gap: 20px;
+  transition: border-color 0.2s;
+}
+.edu-card:hover { border-color: rgba(200,240,96,0.3); }
+.edu-deg { font-weight: 700; font-size: 0.97rem; margin-bottom: 5px; }
+.edu-school { color: var(--accent2); font-size: 0.87rem; font-weight: 600; margin-bottom: 6px; }
+.edu-detail { font-size: 0.82rem; color: var(--muted); }
+.edu-yr { font-size: 0.78rem; color: var(--muted); font-weight: 600; white-space: nowrap; letter-spacing: 0.04em; }
+
+/* SKILLS */
+.skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; }
+.skill-group {
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: var(--r); padding: 22px;
+}
+.sg-title {
+  font-size: 0.72rem; font-weight: 700;
+  letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--muted); margin-bottom: 16px;
+}
+.tags { display: flex; flex-wrap: wrap; gap: 8px; }
+.tag {
+  background: rgba(255,255,255,0.05); border: 1px solid var(--border);
+  color: var(--soft); font-size: 0.8rem; font-weight: 500;
+  padding: 4px 12px; border-radius: 99px; transition: all 0.2s;
+}
+.tag:hover { border-color: var(--accent); color: var(--accent); background: rgba(200,240,96,0.05); }
+
+/* PROJECTS */
+.projects-list { display: flex; flex-direction: column; gap: 18px; }
+.proj-card {
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: var(--r); padding: 28px 32px;
+  transition: border-color 0.25s, transform 0.25s;
+}
+.proj-card:hover { border-color: rgba(200,240,96,0.35); transform: translateX(4px); }
+.proj-head {
+  display: flex; justify-content: space-between;
+  align-items: flex-start; margin-bottom: 8px; gap: 16px;
+}
+.proj-title { font-weight: 700; font-size: 1.02rem; }
+.proj-meta { font-size: 0.8rem; color: var(--muted); margin-bottom: 8px; font-style: italic; }
+.proj-lnks { display: flex; gap: 8px; flex-shrink: 0; }
+.proj-lnks a {
+  font-size: 0.78rem; font-weight: 600; color: var(--muted);
+  text-decoration: none; border: 1px solid var(--border);
+  padding: 3px 11px; border-radius: 99px;
+  letter-spacing: 0.04em; transition: all 0.2s;
+}
+.proj-lnks a:hover { color: var(--accent); border-color: var(--accent); }
+.proj-status {
+  display: inline-block; font-size: 0.73rem; font-weight: 700;
+  letter-spacing: 0.08em; text-transform: uppercase;
+  padding: 2px 10px; border-radius: 99px; margin-bottom: 14px;
+}
+.done  { background: rgba(100,210,120,0.12); color: #6FD68A; }
+.wip   { background: rgba(255,195,80,0.12);  color: #FFC350; }
+.award { background: rgba(200,240,96,0.12);  color: var(--accent); }
+.proj-desc { font-size: 0.9rem; color: var(--soft); line-height: 1.8; margin-bottom: 18px; }
+
+/* AWARDS */
+.award-card {
+  background: var(--surface); border: 1px solid var(--border);
+  border-left: 3px solid var(--accent);
+  border-radius: var(--r); padding: 20px 24px;
+  display: flex; gap: 16px; align-items: flex-start;
+  transition: border-color 0.2s;
+}
+.award-icon { font-size: 1.4rem; line-height: 1; flex-shrink: 0; }
+.award-title { font-weight: 700; font-size: 0.95rem; margin-bottom: 4px; }
+.award-detail { font-size: 0.84rem; color: var(--muted); }
+.awards-list { display: flex; flex-direction: column; gap: 12px; }
+
+/* CONTACT */
+.contact-box {
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: var(--r); padding: 56px 48px; text-align: center;
+}
+.contact-box h3 {
+  font-family: var(--serif); font-size: 2rem;
+  font-weight: 400; letter-spacing: -0.03em; margin-bottom: 14px;
+}
+.contact-box p {
+  color: var(--soft); font-size: 0.95rem;
+  max-width: 420px; margin: 0 auto 36px; line-height: 1.8;
+}
+.contact-links { display: flex; justify-content: center; gap: 12px; flex-wrap: wrap; }
+
+/* FOOTER */
+footer {
+  text-align: center; padding: 36px 24px;
+  font-size: 0.8rem; color: var(--muted); letter-spacing: 0.04em;
+}
+footer a { color: var(--accent); text-decoration: none; }
+
+/* ANIMATIONS */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(22px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.fade-up { opacity: 0; animation: fadeUp 0.6s ease forwards; }
+.d1 { animation-delay: 0.05s; }
+.d2 { animation-delay: 0.15s; }
+.d3 { animation-delay: 0.25s; }
+.d4 { animation-delay: 0.35s; }
+.d5 { animation-delay: 0.45s; }
+
+/* RESPONSIVE */
+@media (max-width: 640px) {
+  .about-cols { grid-template-columns: 1fr; }
+  .xp-item { grid-template-columns: 1fr; }
+  .xp-date { text-align: left; padding-right: 0; }
+  .xp-date::after { display: none; }
+  .xp-body { border-left: none; padding-left: 0; border-top: 1px solid var(--border2); padding-top: 14px; }
+  .edu-card { flex-direction: column; }
+  .contact-box { padding: 36px 20px; }
+  .nav-links { display: none; }
+  .hero-rule { flex-wrap: wrap; }
+  .divider { display: none; }
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a href="#hero" class="nav-logo">Vijayalakshmi<span>.</span>S</a>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#education">Education</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<div class="page">
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-badge fade-up d1">Open to Opportunities</div>
+
+  <h1 class="fade-up d2">
+    Hi, I'm<br><em>Vijayalakshmi S</em>
+  </h1>
+
+  <p class="hero-sub fade-up d3">
+    Biomedical Engineer with international research experience in wearable sensing systems
+    and advanced MRI imaging workflows. Bridging engineering precision with clinical impact —
+    based in Chennai, India.
+  </p>
+
+  <div class="hero-cta fade-up d4">
+    <a href="resume.pdf" class="btn btn-primary">Download Resume ↓</a>
+    <a href="#contact" class="btn btn-ghost">Get in touch</a>
+  </div>
+
+  <div class="hero-rule fade-up d5">
+    <div class="hero-stat">
+      <div class="hero-stat-num">2+</div>
+      <div class="hero-stat-lbl">Years research exp.</div>
+    </div>
+    <div class="divider"></div>
+    <div class="hero-stat">
+      <div class="hero-stat-num">AIR 270</div>
+      <div class="hero-stat-lbl">GATE 2026 — Biomedical</div>
+    </div>
+    <div class="divider"></div>
+    <div class="hero-stat">
+      <div class="hero-stat-num">🏆</div>
+      <div class="hero-stat-lbl">Best Paper — MedNext 2025</div>
+    </div>
+    <div class="divider"></div>
+    <div class="hero-stat">
+      <div class="hero-stat-num">2</div>
+      <div class="hero-stat-lbl">Countries of research exp.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <p class="label">About Me</p>
+  <h2>A bit about<br><em>who I am</em></h2>
+  <div class="about-cols">
+    <div class="about-text">
+      <p>
+        I'm a Biomedical Engineer with a Master's from Heidelberg University and hands-on
+        experience at the German Cancer Research Center (DKFZ), one of Europe's leading
+        research institutions. My work sits at the intersection of hardware, software, and
+        clinical translation.
+      </p>
+      <p>
+        I thrive in cross-functional environments — collaborating with clinicians, physicists,
+        and engineers to ensure that complex systems actually work in the real world, not just
+        in theory.
+      </p>
+    </div>
+    <div class="about-text">
+      <p>
+        Currently, I'm leading the development of an IMU-based gait monitoring system at
+        Anna University's Centre for Medical Electronics, funded by ANRF (formerly DST).
+        My work spans embedded hardware, real-time Python applications, and clinical validation.
+      </p>
+      <p>
+        I'm actively seeking roles in MedTech, biomedical research engineering, clinical
+        data science, or health technology — in India or internationally.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <p class="label">Experience</p>
+  <h2>Where I've<br><em>worked</em></h2>
+
+  <div class="xp-item">
+    <div class="xp-date">Jan 2025 — Present</div>
+    <div class="xp-body">
+      <div class="xp-role">Project Associate — ANRF Funded Project</div>
+      <div class="xp-company">Centre for Medical Electronics, Anna University · Chennai, India</div>
+      <div class="xp-desc">
+        <ul>
+          <li>Led design of an IMU-based gait monitoring system, integrating hardware and software components end-to-end.</li>
+          <li>Developed a Python application for real-time gait visualisation, validated at 98% signal precision.</li>
+          <li>Managed procurement, budgeting, and documentation to ensure full DST-ANRF compliance.</li>
+          <li>Presented prototypes at Medicall 2025, engaging clinicians and MedTech industry partners.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="xp-item">
+    <div class="xp-date">Nov 2022 — Sep 2023</div>
+    <div class="xp-body">
+      <div class="xp-role">Research Assistant</div>
+      <div class="xp-company">German Cancer Research Center (DKFZ) · Heidelberg, Germany</div>
+      <div class="xp-desc">
+        <ul>
+          <li>Built a MATLAB pipeline for Chemical Exchange Saturation Transfer (CEST) MRI images at 9.4 T, improving SNR by 500%.</li>
+          <li>Applied Lorentzian six-pool fitting for quantitative spectral analysis, improving contrast accuracy.</li>
+          <li>Streamlined MRI post-processing workflows with physicists and data scientists, cutting processing time by 40%.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+</section>
+
+<!-- EDUCATION -->
+<section id="education">
+  <p class="label">Education</p>
+  <h2>Academic<br><em>background</em></h2>
+  <div class="edu-list">
+
+    <div class="edu-card">
+      <div>
+        <div class="edu-deg">M.Sc. Biomedical Engineering</div>
+        <div class="edu-school">Heidelberg University, Germany</div>
+        <div class="edu-detail">Thesis: Raw-data reconstruction workflow for preclinical CEST MRI at 9.4 T</div>
+      </div>
+      <div class="edu-yr">2021 – 2023</div>
+    </div>
+
+    <div class="edu-card">
+      <div>
+        <div class="edu-deg">B.E. Biomedical Engineering</div>
+        <div class="edu-school">Rajalakshmi Engineering College, Chennai</div>
+        <div class="edu-detail">Thesis: 3D skin modelling and SAR analysis using COMSOL Multiphysics</div>
+      </div>
+      <div class="edu-yr">2017 – 2021</div>
+    </div>
+
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <p class="label">Skills</p>
+  <h2>What I<br><em>work with</em></h2>
+  <div class="skills-grid">
+
+    <div class="skill-group">
+      <div class="sg-title">Programming & Analysis</div>
+      <div class="tags">
+        <span class="tag">Python</span>
+        <span class="tag">MATLAB</span>
+        <span class="tag">R</span>
+        <span class="tag">SQL</span>
+      </div>
+    </div>
+
+    <div class="skill-group">
+      <div class="sg-title">Data Science & ML</div>
+      <div class="tags">
+        <span class="tag">NumPy</span>
+        <span class="tag">Pandas</span>
+        <span class="tag">Scikit-Learn</span>
+        <span class="tag">Matplotlib</span>
+        <span class="tag">EDA</span>
+      </div>
+    </div>
+
+    <div class="skill-group">
+      <div class="sg-title">Biomedical Systems</div>
+      <div class="tags">
+        <span class="tag">Medical Device Validation</span>
+        <span class="tag">Signal Processing</span>
+        <span class="tag">IMU Sensors</span>
+        <span class="tag">Embedded Systems</span>
+      </div>
+    </div>
+
+    <div class="skill-group">
+      <div class="sg-title">Imaging & Simulation</div>
+      <div class="tags">
+        <span class="tag">MRI Analysis</span>
+        <span class="tag">CEST MRI</span>
+        <span class="tag">Image Processing</span>
+        <span class="tag">COMSOL Multiphysics</span>
+      </div>
+    </div>
+
+    <div class="skill-group">
+      <div class="sg-title">Project Management</div>
+      <div class="tags">
+        <span class="tag">Project Planning Support</span>
+        <span class="tag">Milestone Tracking</span>
+        <span class="tag">Schedule Coordination</span>
+        <span class="tag">Task Prioritisation</span>
+      </div>
+    </div>
+
+    <div class="skill-group">
+      <div class="sg-title">Professional Skills</div>
+      <div class="tags">
+        <span class="tag">Cross-functional Collaboration</span>
+        <span class="tag">Technical Documentation</span>
+        <span class="tag">Stakeholder Communication</span>
+        <span class="tag">Regulatory Compliance</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <p class="label">Projects</p>
+  <h2>Things I've<br><em>built & researched</em></h2>
+  <div class="projects-list">
+
+    <div class="proj-card">
+      <div class="proj-head">
+        <div class="proj-title">Low-Cost Wearable Ankle Angle Measurement System</div>
+        <div class="proj-lnks">
+          <!-- ✏️ Add your GitHub link here if available -->
+        </div>
+      </div>
+      <span class="proj-status award">🏆 Best Paper — MedNext 2025</span>
+      <p class="proj-meta">Python · Embedded Systems · IMU Sensors</p>
+      <p class="proj-desc">
+        Engineered an IMU-based wearable device for real-time ankle-angle tracking with
+        live visualisation in Python. Optimised sensor integration to reduce unit cost below
+        ₹2,000, making clinical biomechanics assessment accessible in low-resource settings.
+      </p>
+      <div class="tags">
+        <span class="tag">Python</span>
+        <span class="tag">IMU Sensors</span>
+        <span class="tag">Embedded Systems</span>
+        <span class="tag">Real-Time Visualisation</span>
+        <span class="tag">Wearables</span>
+      </div>
+    </div>
+
+    <div class="proj-card">
+      <div class="proj-head">
+        <div class="proj-title">CEST MRI Post-Processing Optimisation</div>
+      </div>
+      <span class="proj-status done">Completed</span>
+      <p class="proj-meta">MATLAB · Image Processing · MRI Analysis — Feb 2023</p>
+      <p class="proj-desc">
+        Optimised post-processing for relaxation-compensated CEST MRI at 9.4 T on a mouse
+        brain study. Evaluated multiple Lorentzian models; the six-pool fit achieved superior
+        precision. Proposed a two-step workflow that eliminated magnetisation transfer spillover,
+        improving reproducibility by 20%.
+      </p>
+      <div class="tags">
+        <span class="tag">MATLAB</span>
+        <span class="tag">CEST MRI</span>
+        <span class="tag">Image Processing</span>
+        <span class="tag">Lorentzian Fitting</span>
+        <span class="tag">9.4 T MRI</span>
+      </div>
+    </div>
+
+    <div class="proj-card">
+      <div class="proj-head">
+        <div class="proj-title">IBM Data Science Capstone — Healthcare ML</div>
+        <div class="proj-lnks">
+          <!-- ✏️ Add GitHub link if available -->
+        </div>
+      </div>
+      <span class="proj-status done">Completed</span>
+      <p class="proj-meta">Data Science · Python · Machine Learning — Mar 2024</p>
+      <p class="proj-desc">
+        Collected and processed healthcare data via REST APIs and web scraping, followed by
+        thorough cleaning and exploratory data analysis. Built and tuned a Decision Tree
+        classifier achieving 83% accuracy. Visualised key trends using bar and scatter plots
+        for interpretable clinical insights.
+      </p>
+      <div class="tags">
+        <span class="tag">Python</span>
+        <span class="tag">Scikit-Learn</span>
+        <span class="tag">REST APIs</span>
+        <span class="tag">EDA</span>
+        <span class="tag">Machine Learning</span>
+        <span class="tag">Matplotlib</span>
+      </div>
+    </div>
+
+    <!-- ✏️ Add new project cards here as you complete them -->
+
+  </div>
+</section>
+
+<!-- AWARDS & CERTIFICATIONS -->
+<section id="awards">
+  <p class="label">Awards &amp; Certifications</p>
+  <h2>Recognition &amp;<br><em>credentials</em></h2>
+  <div class="awards-list">
+
+    <div class="award-card">
+      <div class="award-icon">🎯</div>
+      <div>
+        <div class="award-title">GATE 2026 — Biomedical Engineering (BM)</div>
+        <div class="award-detail">All India Rank 270 — Graduate Aptitude Test in Engineering, 2026</div>
+      </div>
+    </div>
+
+    <div class="award-card">
+      <div class="award-icon">🏆</div>
+      <div>
+        <div class="award-title">Best Paper Award — MedNext 2025</div>
+        <div class="award-detail">For the Low-Cost Wearable Ankle Angle Measurement Device — recognised for innovation in accessible biomechanics.</div>
+      </div>
+    </div>
+
+    <div class="award-card">
+      <div class="award-icon">🎓</div>
+      <div>
+        <div class="award-title">IBM Data Science Professional Certificate</div>
+        <div class="award-detail">Python · Data Analytics · Visualisation · Machine Learning — IBM / Coursera, 2024</div>
+      </div>
+    </div>
+
+    <div class="award-card">
+      <div class="award-icon">📊</div>
+      <div>
+        <div class="award-title">Data Analytics with R Programming</div>
+        <div class="award-detail">Statistical Data Analysis in R — 2024</div>
+      </div>
+    </div>
+
+    <!-- ✏️ Add more awards and certifications here -->
+
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <p class="label">Contact</p>
+  <h2>Let's<br><em>connect</em></h2>
+  <div class="contact-box">
+    <h3>Open to new opportunities</h3>
+    <p>
+      I'm actively looking for roles in MedTech, biomedical research, or clinical data science.
+      Whether you have a position in mind or just want to connect — my inbox is always open.
+    </p>
+    <div class="contact-links">
+      <a href="/cdn-cgi/l/email-protection#c7b1aeadaeb4a5f5f387a0aaa6aeabe9a4a8aa" class="btn btn-primary">Email Me</a>
+      <a href="https://www.linkedin.com/in/vijaylakshmi-sivaraman" target="_blank" class="btn btn-ghost">LinkedIn</a>
+      <!-- ✏️ Add your GitHub URL here when ready -->
+      <a href="#" class="btn btn-ghost">GitHub</a>
+    </div>
+  </div>
+</section>
+
+</div>
+
+<footer>
+  © 2025 Vijayalakshmi S &nbsp;·&nbsp;
+  Host free on <a href="https://pages.github.com" target="_blank">Git
